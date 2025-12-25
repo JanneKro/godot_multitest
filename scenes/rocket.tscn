@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctuljpc8t75ai"]
+
+[ext_resource type="Script" uid="uid://ou3ewabr3ytt" path="res://scenes/body.gd" id="1_3341w"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3341w"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Rocket" type="RigidBody2D"]
+mass = 72.16
+script = ExtResource("1_3341w")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-16, 16, 0, -16, 16, 16, 0, 8)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, 16, 0, -16, 16, 16, 8, 16, 0, 8, -8, 16)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+unique_name_in_owner = true
+replication_config = SubResource("SceneReplicationConfig_3341w")

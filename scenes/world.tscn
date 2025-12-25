@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4v48erhl8dm7"]
+
+[ext_resource type="Script" uid="uid://xcq5tfwbjv6c" path="res://scenes/world.gd" id="1_nnsk1"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_nnsk1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.8434943, 0.52651894, 0.2916268, 1)
+polygon = PackedVector2Array(203, 613, 358, 582, 774, 600, 1029, 576, 1122, 230, 1072, 21, 575, 16, 601, 96, 682, 201, 842, 181, 861, 250, 826, 340, 601, 346, 439, 11, 9, 16, -3, 194, 13, 642, 202, 612, 213, 714, -100, 749, -52, -38, 1245, -32, 1208, 702, 212, 717)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(437, 9, 8, 17, -4, 202, 13, 642, 363, 582, 774, 601, 1030, 577, 1123, 228, 1073, 20, 575, 16, 601, 98, 683, 199, 842, 182, 862, 247, 826, 344, 599, 347, 439, 12, 631, -58, 1265, -99, 1246, 771, -350, 810, -92, -131, 622, -57)
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="Players"]
+_spawnable_scenes = PackedStringArray("uid://ctuljpc8t75ai")
+spawn_path = NodePath("..")
